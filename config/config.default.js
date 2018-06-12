@@ -1,7 +1,8 @@
 'use strict';
-
+const path = require('path');
 module.exports = appInfo => {
   return {
+      keys:'R5$Gfi6gxGU$735ROpYMOTu&VJFy^IEaobmdhx4hXN^Yw7vJK8C5Htt5m6Wo5Be79CaTzf1^8XduThQWr!!09B#zGcwHmgC049S',
       logger:{
           dir:path.join(appInfo.root, 'logs'),
       },

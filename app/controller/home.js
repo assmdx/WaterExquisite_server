@@ -4,8 +4,10 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    this.ctx.body = await ctx.model.User.find({})
+    const { ctx, service } = this;
+    ctx.body = await ctx.model.User.find({}).exec()
   }
 }
+
 
 module.exports = HomeController;
