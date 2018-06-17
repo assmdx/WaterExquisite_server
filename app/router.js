@@ -5,5 +5,8 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
+  router.post('/WaterExquisite_api/index/index', controller.api.good.index);
+  router.post('/WaterExquisite_api/goods/detail', controller.api.good.detail);
+  router.post('/WaterExquisite_api/order/list', controller.api.order.list);
+  router.post('/WaterExquisite_api/collect/list', controller.api.collect.list);
 };

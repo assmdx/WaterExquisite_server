@@ -1,18 +1,33 @@
 'use strict';
 const path = require('path');
 module.exports = appInfo => {
-  return {
-      keys:'R5$Gfi6gxGU$735ROpYMOTu&VJFy^IEaobmdhx4hXN^Yw7vJK8C5Htt5m6Wo5Be79CaTzf1^8XduThQWr!!09B#zGcwHmgC049S',
-      logger:{
-          dir:path.join(appInfo.root, 'logs'),
-      },
-      config:{
-          keys:appInfo.name + '_MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDV9DYUpEdsEaXIAx0Mt/38at1b',
-          middleware:[],
-      },
-      mongoose:{
-          url:'mongodb://localhost:27017/WaterExquisite',
-          options:{},
-      }
-  }
+    return {
+        keys:'R5$Gfi6gxGU$735ROpYMOTu&VJFy^IEaobmdhx4hXN^Yw7vJK8C5Htt5m6Wo5Be79CaTzf1^8XduThQWr!!09B#zGcwHmgC049S',
+        logger:{
+            dir:path.join(appInfo.root, 'logs'),
+        },
+        config:{
+            keys:appInfo.name + '_MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDV9DYUpEdsEaXIAx0Mt/38at1b',
+            middleware:[],
+        },
+        mongoose:{
+            url:'mongodb://localhost:27017/WaterExquisite',
+            options:{},
+        },
+        logrotator: {
+            filesRotateByHour: [
+                path.join(appInfo.root, 'logs', appInfo.name, 'common-error.log'),
+            ],
+        },
+        onerror:{
+            all(err,ctx){
+                ctx.body = {
+                    errno:1,
+                    errMes:msg,
+                    data:err
+                }
+                ctx.status = 500
+            }
+        }
+    }
 };
