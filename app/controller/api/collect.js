@@ -3,9 +3,10 @@
 const Controller = require('../core/base_controller');
 
 class CollectController extends Controller {
-    let log = this.logger
+
     async list() {
         const { ctx, service } = this;
+        const log = ctx.logger
         log.info("receive message of collect/list")
         log.debug(ctx.request.body)
         try{
@@ -20,6 +21,7 @@ class CollectController extends Controller {
 
     async addordelete() {
         const { ctx, service } = this;
+        const log = ctx.logger
         log.info('receive message of collect/addordelete')
         log.debug(ctx.request.body)
         try{
@@ -33,4 +35,4 @@ class CollectController extends Controller {
 
 }
 
-module.exports = OrderController;
+module.exports = CollectController;

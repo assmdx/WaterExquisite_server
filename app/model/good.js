@@ -3,21 +3,41 @@ module.exports = app => {
     const Schema = mongoose.Schema
     const GoodSchema = new Schema({
         info: {
-            goods_desc: {type:String},
-            name: {type:String},
-            goods_retail_price: {type:Number}
+            goods_desc: {
+                type: String
+            },
+            name: {
+                type: String
+            },
+            goods_retail_price: {
+                type: Number
+            }
         },
-        gallery: {type:[String]},
-        attribute: {type:[String]},
+        gallery: {
+            type: [String]
+        },
+        attribute: {
+            type: [String]
+        },
         specificationList: [{
-            specification_id: {type:String},
-            name: {type:String},
+            specification_id: {
+                type: String
+            },
+            name: {
+                type: String
+            },
             valueList: [{
-                id: {type:String},
-                value: {type:String}
+                id: {
+                    type: String
+                },
+                value: {
+                    type: String
+                }
             }]
         }],
-        number: {type:Number},
+        number: {
+            type: Number
+        },
     })
-    return mongoose.model('Good',GoodSchema)
+    return mongoose.model('Good', GoodSchema)
 }

@@ -3,9 +3,10 @@
 const Controller = require('../core/base_controller');
 
 class OrderController extends Controller {
-    let log = this.logger
+
     async list() {
         const { ctx, service } = this;
+        const log = ctx.logger
         log.info("receive message of order/list")
         log.debug(ctx.request.body)
         try{
