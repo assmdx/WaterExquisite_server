@@ -36,5 +36,5 @@ module.exports = app => {
             },
         }
     })
-    return mongoose.model('Order', OrderSchema)
+    return mongoose.model('orders', OrderSchema)
 }

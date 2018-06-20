@@ -11,7 +11,7 @@ class GoodController extends Controller {
         } = this;
         const log = ctx.logger
         try {
-            let goods = await ctx.service.good.findAllGoods()
+            let goods = await service.good.getAllGoods()
             let data = {
                 floorGoods: [{
                     name: '商品',
@@ -47,8 +47,8 @@ class GoodController extends Controller {
         const log = ctx.logger
         log.info('receive message of goods/detail')
         try {
-            let goodDetail = await ctx.service.good.findGoodDetail(ctx.request.body.id)
-            this.success(data)
+            let goodDetail = await service.good.getGoodDetail(ctx.request.body.id)
+            this.success(goodDetail)
         } catch (err) {
             log.error(err)
             this.fail("fail to get good detail", err)

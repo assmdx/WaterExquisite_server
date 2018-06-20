@@ -10,7 +10,7 @@ class CollectController extends Controller {
         log.info("receive message of collect/list")
         log.debug(ctx.request.body)
         try{
-            let data = await service.order.findCollectByUserid(ctx.request.body.userId)
+            let data = await service.collect.findCollectByUserid(ctx.request.body.userInfo)
             this.success(data)
         }
         catch(err){
@@ -25,7 +25,8 @@ class CollectController extends Controller {
         log.info('receive message of collect/addordelete')
         log.debug(ctx.request.body)
         try{
-            let data = await service.collect.addordelete(ctx.request.body.goodId,ctx.request.body.userId)
+            let data = await service.collect.addordelete(ctx.request.body.valueId,ctx.request.body.userInfo)
+            this.success(data)
         }
         catch(err){
             log.error(err)

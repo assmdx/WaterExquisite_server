@@ -39,5 +39,5 @@ module.exports = app => {
             type: Number
         },
     })
-    return mongoose.model('Good', GoodSchema)
+    return mongoose.model('goods', GoodSchema)
 }

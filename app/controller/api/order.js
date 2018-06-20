@@ -10,7 +10,7 @@ class OrderController extends Controller {
         log.info("receive message of order/list")
         log.debug(ctx.request.body)
         try{
-            let data = await service.order.getAllOrders(ctx.request.body.userId)
+            let data = await service.order.getAllOrders(ctx.request.body.userInfo)            
             this.success(data)
         }
         catch(err){

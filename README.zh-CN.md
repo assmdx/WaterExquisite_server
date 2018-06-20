@@ -1,6 +1,7 @@
 # WaterExquisite_server
 
-WaterExquisite mini program server.
+WaterExquisite微信小程序服务端.
+使用es6 + egg.js + mongodb
 
 ## 快速入门
 

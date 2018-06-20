@@ -6,5 +6,5 @@ module.exports = app => {
         number:{type:Number},
         address:{type:String}
     })
-    return mongoose.model('User',UserSchema)
+    return mongoose.model('users',UserSchema)
 }

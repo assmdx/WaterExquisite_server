@@ -25,5 +25,5 @@ module.exports = app => {
             type: Number
         }
     })
-    return mongoose.model('Collect', CollectSchema)
+    return mongoose.model('collects', CollectSchema)
 }
