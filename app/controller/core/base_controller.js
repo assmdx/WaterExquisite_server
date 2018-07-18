@@ -1,4 +1,6 @@
-const { Controller } = require('egg');
+const {
+  Controller
+} = require('egg');
 class BaseController extends Controller {
   // get user() {
   //   return this.ctx.session.user;
@@ -7,17 +9,17 @@ class BaseController extends Controller {
   success(data) {
     this.ctx.body = {
       errno: 0,
-      errMes:"susscess",
+      errMes: "susscess",
       data,
     };
   }
 
-  fail(msg,data) {
-      this.ctx.body = {
-          errno:1,
-          errMes:msg,
-          data
-      }
+  fail(msg, data) {
+    this.ctx.body = {
+      errno: 1,
+      errMes: msg,
+      data
+    }
   }
 
   notFound(msg) {

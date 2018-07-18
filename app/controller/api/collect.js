@@ -37,8 +37,6 @@ class CollectController extends Controller {
             this.fail("Find collect failed", err)
         }
     }
-
-
 }
 
 module.exports = CollectController;

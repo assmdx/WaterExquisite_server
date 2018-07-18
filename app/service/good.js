@@ -10,6 +10,11 @@ class GoodService extends Service {
       const data = await this.ctx.model.Good.find({"_id":goodId}).exec()
       return data
   }
+  async insertGood(goodData){
+      const goodModel = new this.ctx.model.Good(goodData)
+      let dataRes = await goodModel.save().then()
+      return dataRes
+  }
 }
 
 module.exports = GoodService;

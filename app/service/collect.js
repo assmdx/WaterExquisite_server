@@ -24,9 +24,7 @@ class CollectService extends Service {
         const {
             ctx,
             service
-        } = this;
-        const log = ctx.logger
-        log.debug('data for collect insert is :', data)
+        } = this;        
         const collectModel = new this.ctx.model.Collect(data)
         let dataRes = await collectModel.save().then()
         return dataRes
