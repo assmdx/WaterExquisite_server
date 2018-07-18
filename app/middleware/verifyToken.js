@@ -19,7 +19,7 @@ module.exports = (options) =>{
             else
             {
                 const parseRes = jsonwebtoken.verify(token,secret);
-                if(null !== parseRes)
+                if(parseRes)
                 {
                     await next();
                 }

@@ -12,7 +12,6 @@ class UserController extends Controller {
         const log = ctx.logger;
         try {
             let loginRes = await service.user.login();
-
             this.success(loginRes)
         } catch (err) {
             log.error(err);
