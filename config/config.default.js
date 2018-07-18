@@ -34,13 +34,13 @@ module.exports = appInfo => {
         },
         middleware:['verifyToken'],
         weixin:{
-          appid:'wx031493a97ac06b17',// 小程序 appid
-          secret:'ed2e0b740ddb023e47e0e3ad10cff1d7',// 小程序密钥
+          appid:'',// 小程序 appid
+          secret:'',// 小程序密钥
           mch_id:'',// 商户帐号ID
           partner_key:'',// 微信支付密钥
           notify_url:'',// 微信异步通知
           userauth_url:'https://api.weixin.qq.com/sns/jscode2session',//用于获取微信用用户登录open_id
-          tokensecret:'akjhdfkashd9uh2kjhrwieuy@gasd'
+          tokensecret:''
         },
         verifyToken:{
             ignore:'/WaterExquisite_api/auth/loginByWeixin'
