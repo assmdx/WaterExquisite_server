@@ -4,8 +4,7 @@ module.exports = app => {
     const ObjectId = Schema.Types.ObjectId;
     const OrderSchema = new Schema({
         user: {
-            type: ObjectId,
-            ref: 'User'
+            type:String
         },
         orderh_sn: {
             type: String

@@ -18,20 +18,5 @@ class UserController extends Controller {
             this.fail("login failed",err);
         }
     }
-
-    async verify() {
-        const {
-            ctx,
-            service
-        } = this;
-        const log = ctx.logger;
-        const token = ctx.get("X-WaterExquisite-Token");
-        if (await service.user.verify(token)) {
-            this.success()
-        }
-        else {
-            this.verifyFailed()
-        }
-    }
 }
 module.exports = UserController;

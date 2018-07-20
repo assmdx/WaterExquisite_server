@@ -5,8 +5,7 @@ module.exports = app => {
 
     const CollectSchema = new Schema({
         user: {
-            type: ObjectId,
-            ref: 'User'
+            type:String
         },
         good: {
             type: ObjectId,

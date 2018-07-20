@@ -75,7 +75,6 @@ class UserService extends Service {
             await newUser.save().then()
         }
 
-        userid = openidData.data.user_id
 
         // 查询用户信息
         // const newUserInfo = await this.ctx.model.User.field(['userId', 'nickname', 'gender', 'avatar']).where({
@@ -86,12 +85,13 @@ class UserService extends Service {
         // newUserInfo.last_login_time = parseInt(new Date().getTime() / 1000);
 
         // 更新登录信息
-        let userInfoUpdated = await this.ctx.model.User.update({userId: userid}, {
+        await this.ctx.model.User.update({userId: openidData.data.openid}, {
             last_login_time: parseInt(new Date().getTime() / 1000)
         })
 
+        let userInfoUpdated = await this.ctx.model.User.find({userId:openidData.data.openid}).exec();
         const secret = weixinConfig.tokensecret
-        const sessionKey = jsonwebtoken.sign(userInfoUpdated, secret)
+        const sessionKey = jsonwebtoken.sign(openidData.data, secret)
         if (!userInfoUpdated || !sessionKey) {
             throw "login failed when get session and userInfoUpdate"
         }

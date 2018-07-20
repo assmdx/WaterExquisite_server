@@ -1,5 +1,5 @@
 'use strict';
-
+const jsonwebtoken = require('jsonwebtoken');
 const Controller = require('../core/base_controller');
 
 class CollectController extends Controller {
@@ -13,7 +13,10 @@ class CollectController extends Controller {
         log.info("receive message of collect/list")
         log.debug(ctx.request.body)
         try {
-            let data = await service.collect.findCollectByUserid(ctx.request.body.userInfo)
+            const token = ctx.get("X-WaterExquisite-Token");
+            const secret = ctx.app.config.weixin.tokensecret;
+            const parseRes = jsonwebtoken.verify(token,secret);
+            let data = await service.collect.findCollectByUserid(parseRes.openid)
             this.success(data)
         } catch (err) {
             log.error(err)
@@ -30,7 +33,10 @@ class CollectController extends Controller {
         log.info('receive message of collect/addordelete')
         log.debug(ctx.request.body)
         try {
-            let data = await service.collect.addordelete(ctx.request.body.valueId, ctx.request.body.userInfo)
+            const token = ctx.get("X-WaterExquisite-Token");
+            const secret = ctx.app.config.weixin.tokensecret;
+            const parseRes = jsonwebtoken.verify(token,secret);
+            let data = await service.collect.addordelete(ctx.request.body.valueId,parseRes.openid)
             this.success(data)
         } catch (err) {
             log.error(err)

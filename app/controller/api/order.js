@@ -1,5 +1,5 @@
 'use strict';
-
+const jsonwebtoken = require('jsonwebtoken');
 const Controller = require('../core/base_controller');
 
 class OrderController extends Controller {
@@ -10,7 +10,10 @@ class OrderController extends Controller {
         log.info("receive message of order/list")
         log.debug(ctx.request.body)
         try{
-            let data = await service.order.getAllOrders(ctx.request.body.userInfo)            
+            const token = ctx.get("X-WaterExquisite-Token");
+            const secret = ctx.app.config.weixin.tokensecret;
+            const parseRes = jsonwebtoken.verify(token,secret);
+            let data = await service.order.getAllOrders(parseRes.openid)
             this.success(data)
         }
         catch(err){

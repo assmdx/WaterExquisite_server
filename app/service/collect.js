@@ -58,7 +58,7 @@ class CollectService extends Service {
             // log.debug('findGoodResult  is :', findGoodResult)
 
             await that.insertCollect({
-                user: ObjectId(userId),
+                user: userId,
                 good: ObjectId(goodId),
                 list_pic_url: 'http://zheli.org/data/20180516141005.jpg',
                 name: findGoodResult[0].info.name,

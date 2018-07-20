@@ -3,7 +3,6 @@
 const Controller = require('../core/base_controller');
 
 class GoodController extends Controller {
-
   async index() {
     const {
       ctx,
