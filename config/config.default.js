@@ -43,7 +43,12 @@ module.exports = appInfo => {
           tokensecret:''
         },
         verifyToken:{
-            ignore:'/WaterExquisite_api/auth/loginByWeixin'
+            // ignore:'/WaterExquisite_api/auth/loginByWeixin'
+            ignore(ctx){
+                const regOfAddGood = /\/WaterExquisite_api\/goods\/add/;
+                const regOfWeixinLogin = /\/WaterExquisite_api\/auth\/loginByWeixin/;
+                return (regOfAddGood.test(ctx.request.url) || regOfWeixinLogin.test(ctx.request.url));
+            }
         }
     }
 };
