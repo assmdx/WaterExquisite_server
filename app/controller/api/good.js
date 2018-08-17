@@ -53,21 +53,6 @@ class GoodController extends Controller {
       this.fail("fail to get good detail", err)
     }
   }
-
-  async add() {
-    const {
-      ctx,
-      service
-    } = this;
-    const log = ctx.logger
-    log.info('receive message of goods/add')
-    try {
-      await service.good.insertGood(ctx.request.body)
-      this.success('insert good success')
-    } catch (err) {
-      this.fail("fail to add good", err)
-    }
-  }
 }
 
 

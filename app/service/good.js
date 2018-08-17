@@ -15,6 +15,10 @@ class GoodService extends Service {
       let dataRes = await goodModel.save().then()
       return dataRes
   }
+  async removeGood(goodId){
+      const data = await this.ctx.model.Good.remove({"_id":goodId}).exec();
+      return data;
+  }
 }
 
 module.exports = GoodService;

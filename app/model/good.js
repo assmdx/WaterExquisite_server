@@ -16,6 +16,9 @@ module.exports = app => {
         gallery: {
             type: [String]
         },
+        thumb:{
+            type:String
+        },
         attribute: {
             type: [String]
         },

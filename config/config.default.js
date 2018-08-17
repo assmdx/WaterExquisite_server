@@ -2,12 +2,12 @@
 const path = require('path');
 module.exports = appInfo => {
     return {
-        keys:'R5$Gfi6gxGU$735ROpYMOTu&VJFy^IEaobmdhx4hXN^Yw7vJK8C5Htt5m6Wo5Be79CaTzf1^8XduThQWr!!09B#zGcwHmgC049S',
+        keys:'',
         logger:{
             dir:path.join(appInfo.root, 'logs'),
         },
         config:{
-            keys:appInfo.name + '_MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDV9DYUpEdsEaXIAx0Mt/38at1b',
+            keys:appInfo.name + '',
             middleware:[]
         },
         bodyParser:{
@@ -43,11 +43,10 @@ module.exports = appInfo => {
           tokensecret:''
         },
         verifyToken:{
-            // ignore:'/WaterExquisite_api/auth/loginByWeixin'
             ignore(ctx){
-                const regOfAddGood = /\/WaterExquisite_api\/goods\/add/;
                 const regOfWeixinLogin = /\/WaterExquisite_api\/auth\/loginByWeixin/;
-                return (regOfAddGood.test(ctx.request.url) || regOfWeixinLogin.test(ctx.request.url));
+                const adminApi = /WaterExquisite_manage\/admin\/[.]?/;
+                return regOfWeixinLogin.test(ctx.request.url) || adminApi.test(ctx.request.url) ;
             }
         }
     }
