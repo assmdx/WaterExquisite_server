@@ -45,7 +45,8 @@ class GoodController extends Controller {
         const log = ctx.logger;
         log.info('receive message of good/delete');
         try{
-            await service.good.removeGood(ctx.request.body.id);
+            let data = await service.good.removeGood(ctx.request.body.id);
+            this.success(data);
         } catch(err){
             this.fail('fail to delete good',err);
         }

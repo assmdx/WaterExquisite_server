@@ -60,7 +60,7 @@ class CollectService extends Service {
             await that.insertCollect({
                 user: userId,
                 good: ObjectId(goodId),
-                list_pic_url: 'http://zheli.org/data/20180516141005.jpg',
+                list_pic_url: findGoodResult[0].thumb,
                 name: findGoodResult[0].info.name,
                 goods_brief: '???',
                 retail_price: findGoodResult[0].info.goods_retail_price
